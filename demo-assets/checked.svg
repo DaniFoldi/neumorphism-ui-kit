@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="-1.5 -1.5 25.621 23" width="25.621pt" height="23pt">
+  <circle vector-effect="non-scaling-stroke" cx="10" cy="10" r="10" fill="none" stroke-width="3" stroke="#8093f1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+  <line x1="5" y1="10" x2="10" y2="15" vector-effect="non-scaling-stroke" stroke-width="3" stroke="#1839da" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+  <line x1="10" y1="15" x2="22" y2="3" vector-effect="non-scaling-stroke" stroke-width="3" stroke="#1839da" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+</svg>

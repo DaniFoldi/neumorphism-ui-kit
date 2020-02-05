@@ -1,0 +1,264 @@
+//compile
+
+// sass-lint:disable no-url-domains no-url-protocols placeholder-in-extend
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400i,500,600&display=swap&subset=latin-ext')
+
+@mixin aspect-ratio($width, $height)
+  position: relative
+
+  &::before
+    content: ''
+    display: block
+    padding-top: ($height / $width) * 100%
+    width: 100%
+
+  > *
+    bottom: 0
+    left: 0
+    position: absolute
+    right: 0
+    top: 0
+
+$gray: #ebe8f2
+$blue: #72ddf7
+$purple: #b388eb
+$light: #8093f1
+$pink: #f7aef8
+$red: #ff6161
+
+$background: $gray
+$text-color: darken($light, 90)
+
+img
+  max-height: 100%
+  max-width: 100%
+
+a,
+a:visited // sass-lint:disable-line force-pseudo-nesting
+  color: inherit
+
+.neu
+  background: $gray
+  color: $text-color
+  font-family: Muli, sans-serif
+  font-weight: 300
+  margin: 0
+  padding: 0
+
+  &.neu-container
+    display: grid
+    grid-gap: 12px 24px
+    grid-template-columns: repeat(12, 1fr)
+    padding: 24px
+
+  &.neu-better-container
+    @extend .neu.neu-container
+    griid-template-columns: repeat(12, auto)
+
+  &.neu-full
+    grid-column: 1 / -1
+
+  &.neu-half
+    grid-column: span 6
+
+  &.neu-third
+    grid-column: span 4
+
+  &.neu-quarter
+    grid-column: span 3
+
+  &.neu-square-container
+    @include aspect-ratio(1, 1)
+    box-sizing: border-box
+    margin: 12px
+
+  &.neu-square
+    box-sizing: border-box
+    margin: 0 !important //sass-lint:disable-line no-important
+
+  &.neu-out,
+  &.neu-in
+    border-radius: 12px
+    margin: 12px 0
+
+  &.neu-out
+    box-shadow: -7px -7px 8px lighten($gray, 5), 7px 7px 8px darken($gray, 10)
+
+    transition: box-shadow .4s
+
+    &.neu-hover
+      &:hover
+        box-shadow: -10px -10px 10px lighten($gray, 5), 10px 10px 10px darken($gray, 10)
+
+  &.neu-in
+    box-shadow: -5px -5px 5px lighten($gray, 5) inset, 5px 5px 5px darken($gray, 10) inset
+
+    transition: box-shadow .4s
+
+    &.neu-hover
+      &:hover
+        box-shadow: -4px -4px 4px lighten($gray, 5) inset, 4px 4px 4px darken($gray, 10) inset
+
+  &.neu-button
+    cursor: pointer
+    font-size: 20px
+    letter-spacing: .7px
+    padding: 12px
+    text-align: center
+
+  &.neu-checkbox
+    &[data-checked='false']
+      @extend .neu.neu-out
+
+      &::before
+        background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgc3R5bGU9Imlzb2xhdGlvbjppc29sYXRlIiB2aWV3Qm94PSItMS41IC0xLjUgMjMgMjMiIHdpZHRoPSIyM3B0IiBoZWlnaHQ9IjIzcHQiPgogIDxjaXJjbGUgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeD0iMTAiIGN5PSIxMCIgcj0iMTAiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlPSIjODA5M2YxIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBzdHJva2UtbWl0ZXJsaW1pdD0iMyIvPgo8L3N2Zz4K')
+        background-size: contain
+        content: ''
+        display: block
+        height: 25px
+        position: absolute
+        width: 25px
+
+    &[data-checked='true']
+      @extend .neu.neu-in
+
+      &::before
+        background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgc3R5bGU9Imlzb2xhdGlvbjppc29sYXRlIiB2aWV3Qm94PSItMS41IC0xLjUgMjUuNjIxIDIzIiB3aWR0aD0iMjUuNjIxcHQiIGhlaWdodD0iMjNwdCI+CiAgPGNpcmNsZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGN4PSIxMCIgY3k9IjEwIiByPSIxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2U9IiM4MDkzZjEiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHN0cm9rZS1taXRlcmxpbWl0PSIzIi8+CiAgPGxpbmUgeDE9IjUiIHkxPSIxMCIgeDI9IjEwIiB5Mj0iMTUiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2U9IiMxODM5ZGEiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHN0cm9rZS1taXRlcmxpbWl0PSIzIi8+CiAgPGxpbmUgeDE9IjEwIiB5MT0iMTUiIHgyPSIyMiIgeTI9IjMiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2U9IiMxODM5ZGEiIHN0cm9rZS1saW5lam9pbj0ibWl0ZXIiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHN0cm9rZS1taXRlcmxpbWl0PSIzIi8+Cjwvc3ZnPgo=')
+        background-size: contain
+        content: ''
+        display: block
+        height: 25px
+        position: absolute
+        width: 27.88152px
+
+  &.neu-radio
+    &[data-selected='false']
+      @extend .neu.neu-out
+
+      &::before
+        background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgc3R5bGU9Imlzb2xhdGlvbjppc29sYXRlIiB2aWV3Qm94PSItMS41IC0xLjUgMjMgMjMiIHdpZHRoPSIyM3B0IiBoZWlnaHQ9IjIzcHQiPgogIDxjaXJjbGUgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeD0iMTAiIGN5PSIxMCIgcj0iMTAiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlPSIjODA5M2YxIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBzdHJva2UtbWl0ZXJsaW1pdD0iMyIvPgo8L3N2Zz4K')
+        background-size: contain
+        content: ''
+        display: block
+        height: 25px
+        position: absolute
+        width: 25px
+
+    &[data-selected='true']
+      @extend .neu.neu-in
+
+      &::before
+        background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgc3R5bGU9Imlzb2xhdGlvbjppc29sYXRlIiB2aWV3Qm94PSItMS41IC0xLjUgMjMgMjMiIHdpZHRoPSIyM3B0IiBoZWlnaHQ9IjIzcHQiPgogIDxjaXJjbGUgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeD0iMTAiIGN5PSIxMCIgcj0iMTAiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlPSIjODA5M2YxIiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBzdHJva2UtbWl0ZXJsaW1pdD0iMyIvPgogIDxjaXJjbGUgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeD0iMTAiIGN5PSIxMCIgcj0iNS45OTk5OTk5OTk5OTk5OTgiIGZpbGw9IiMxODM5ZGEiLz4KPC9zdmc+Cg==')
+        background-size: contain
+        content: ''
+        display: block
+        height: 25px
+        position: absolute
+        width: 25px
+
+  &.neu-notification
+    border-radius: 12px
+    bottom: 24px
+    left: 24px
+    opacity: .75
+    position: fixed
+    transition: opacity .3s
+    z-index: 1000
+
+    &:hover
+      opacity: .97
+
+  &.neu-highlight
+    background: $light
+    color: lighten($light, 25)
+    letter-spacing: 2px
+    text-transform: uppercase
+
+  &.neu-destroy
+    background: $red
+    color: lighten($light, 25)
+
+  &.neu-secondary
+    border-radius: 12px
+    margin: 12px 0
+
+  &.neu-title
+    font-size: 60px
+    font-weight: 600
+    text-transform: capitalize
+
+  &.neu-subtitle
+    color: transparentize($text-color, .2)
+    font-size: 26px
+    font-weight: 400i
+    text-transform: uppercase
+
+  &.neu-divider
+    background: darken($gray, 30)
+    border: 0
+    height: 1px
+    margin: 24px 0
+
+  &.neu-thin
+    height: 24px
+
+  &.neu-round
+    border-radius: 50%
+    height: 24px
+    width: 24px
+
+  &.neu-attribution
+    color: lighten($text-color, 30)
+    font-weight: 600
+    text-align: center
+    text-transform: uppercase
+
+  &.neu-label
+    color: lighten($text-color, 30)
+    font-weight: 600
+    text-transform: uppercase
+
+  &.neu-input
+    border: 0
+    caret-color: lighten($text-color, 30)
+    color: lighten($text-color, 30)
+    font-size: 18px
+    font-weight: 500
+    padding: 12px
+
+    &:focus
+      outline: none
+
+    &::placeholder
+      color: lighten($text-color, 60)
+
+  &.neu-information
+    color: lighten($text-color, 30)
+    font-weight: 300
+
+  &.neu-icon-small
+    height: 48px
+    width: 48px
+
+  &.neu-icon-large
+    height: 96px
+    width: 96px
+
+  &.neu-progressbar
+    caret-color: lighten($text-color, 30)
+    color: lighten($text-color, 30)
+    font-size: 16px
+    height: 32px
+    line-height: 32px
+    text-align: center
+
+    @for $width from 1 through 100
+      &[data-progress='#{$width}']
+        &::after
+          background: $light
+          content: ''
+          display: block
+          height: 100%
+          position: relative
+          top: -100%
+          width: $width * 1%

@@ -1,0 +1,26 @@
+{
+  "name": "neumorphism-ui-kit",
+  "version": "0.0.1",
+  "description": "A UI Kit with neumorphism-style elements",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaniFoldi/neumorphism-ui-kit.git"
+  },
+  "keywords": [
+    "neumorphism",
+    "css",
+    "neumorph",
+    "ui",
+    "kit"
+  ],
+  "author": "DaniFoldi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DaniFoldi/neumorphism-ui-kit/issues"
+  },
+  "homepage": "https://github.com/DaniFoldi/neumorphism-ui-kit#readme"
+}
